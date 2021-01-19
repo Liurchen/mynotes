@@ -13,5 +13,42 @@ depth 用来指定克隆的深度，这个深度指的是 commit 次数，这里
 ```git fetch --unshallow``` 表示拉取完整项目
 这样操作就可以保证在弱网络条件下拉取大型项目
 
+* 问题：克隆项目的时候如何设置代理？
 
+1，全局代理
 
+http 代理
+
+```git config --global http.proxy http://127.0.0.1:1080```
+
+```git config --global https.proxy http://127.0.0.1:1080```
+
+socks 代理
+
+```git config --global http.proxy socks5://127.0.0.1:1080```
+
+```git config --global https.proxy socks5://127.0.0.1:1080```
+
+2，对某一个域名设置代理
+
+http 代理
+
+```git config --global http.https://github.com.proxy http://127.0.0.1:1080```
+
+```git config --global https.https://github.com.proxy http://127.0.0.1:1080```
+
+socks 代理
+
+```git config --global http.https://github.com.proxy socks5://127.0.0.1:1080```
+
+```git config --global https.https://github.com.proxy socks5://127.0.0.1:1080```
+
+假设本地代理的地址是 ```http://127.0.0.1:1080```
+
+最后 清除代理
+
+```git config --global --unset http.proxy```
+
+```git config --global --unset https.proxy```
+
+其实也可以去 ```~/.gitconfig``` 文件里去看，删掉有关 proxy 的行就行了~
