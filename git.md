@@ -45,7 +45,7 @@ socks 代理
 
 假设本地代理的地址是 ```http://127.0.0.1:1080```
 
-最后 清除代理
+3，清除代理
 
 ```git config --global --unset http.proxy```
 
